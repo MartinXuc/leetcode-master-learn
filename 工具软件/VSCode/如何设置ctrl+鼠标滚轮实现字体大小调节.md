@@ -1,1 +1,0 @@
-搜索`Mouse wheel zoom`勾选即可
