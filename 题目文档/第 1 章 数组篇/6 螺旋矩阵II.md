@@ -49,3 +49,59 @@ class Solution:
         return nums
 ```
 
+```cpp
+class Solution {
+public:
+    void drawEdge(const int x, const int y, const int n, int & num, vector<vector<int>>& nums) {
+        int i = y, j = x;
+        for (; j < x + n; j++, num++) {
+            nums[i][j] = num;
+            // cout << "i = " << i << ", j =" << j << ", num = " << num << endl;
+            // printVector(nums);
+        }
+        j--;
+        i++;
+        for (; i < y + n; i++, num++) {
+            nums[i][j] = num;
+            // cout << "i = " << i << ", j =" << j << ", num = " << num << endl;
+            // printVector(nums);
+        }
+        i--;
+        j--;
+        for (; j >= x; j--, num ++) {
+            nums[i][j] = num;
+            // cout << "i = " << i << ", j =" << j << ", num = " << num << endl;
+            // printVector(nums);
+        }
+        j++;
+        i--;
+        for (; i > y; i--, num++) {
+            nums[i][j] = num;
+            // cout << "i = " << i << ", j =" << j << ", num = " << num << endl;
+            // printVector(nums);
+        }
+    }
+    vector<vector<int>> generateMatrix(int n) {
+        int x = 0, y = 0, num = 1;
+        vector<vector<int>> ans(n, vector<int>(n));
+        while (n > 0) {
+            drawEdge(x, y, n, num, ans);
+            ++x, ++y;
+            n -= 2;
+        }
+        return ans;
+    }
+    void printVector(const vector<vector<int>>& nums) {
+        cout << "------" << endl;
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            cout << "[ ";
+            for (int j = 0; j < n; ++j) {
+                cout << nums[i][j] << " ";
+            }
+            cout << "]" << endl;
+        }
+        cout << "------" << endl;
+    }
+};
+```
