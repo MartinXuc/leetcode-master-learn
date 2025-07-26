@@ -1,3 +1,5 @@
+[toc]
+
 - [力扣题目链接](https://leetcode.cn/problems/spiral-matrix-ii/)
 - [代码随想录链接](https://programmercarl.com/0059.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II.html#%E7%AE%97%E6%B3%95%E5%85%AC%E5%BC%80%E8%AF%BE)
 
@@ -105,3 +107,12 @@ public:
     }
 };
 ```
+
+## 小结
+
+先设计好需要使用什么样的功能，然后定义好函数接口，之后实现一个函数再调用。流程下来还是挺顺畅的，过程中因为一些变量名的疏忽导致 debug 花了一些时间。
+
+另外学到了 python 中创建一个 n * n 矩阵的语法：`nums = [[0] * n for _ in range(n)]`；C++ 中创建一个 n * n 矩阵的语法：`vector<vector<int>> nums(n, vector<int>(n))`。
+
+接下来看看代码随想录，发现实现思路是差不多的，那就不额外在这篇wf'd
+
