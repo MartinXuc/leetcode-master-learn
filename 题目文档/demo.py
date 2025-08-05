@@ -1,42 +1,15 @@
 class Solution:
-    def fourSum(self, nums: list[int], target: int) -> list[list[int]]:
-        i, j, l, r, sum_ = 0, 0, 0, 0, 0
-        nums.sort()
-        print(nums)
-        ans = []
-        i = 0
-        while i < len(nums) - 3:
-            j = i + 1
-            while j < len(nums) - 2:
-                l = j + 1
-                r = len(nums) - 1
+    def reverseString(self, s: List[str]) -> None:
+        """
+        Do not return anything, modify s in-place instead.
+        """
+        left = 0, right = len(s) - 1
+        while left < right:
+            s[left], s[right] = s[right], s[left]
+            left += 1
+            right -= 1
 
-                while l < r:
-                    sum_ = nums[i] + nums[j] + nums[l] + nums[r]
-                    if sum_ < target:
-                        l += 1
-                    elif sum_ > target:
-                        r -= 1
-                    else:
-                        ans.append([nums[i], nums[j], nums[l], nums[r]])
-                        l += 1
-                        r -= 1
-                        # l, r 去重
-                        while l < len(nums) and nums[l - 1] ==nums[l]:
-                            l += 1
-                        while r > 0 and nums[r + 1] == nums[r]:
-                            r -= 1
-                # lr 遍历完毕后，j 再去重
-                j += 1
-                while j < len(nums) - 2 and nums[j - 1] == nums[j]:
-                    j += 1
-            # j 遍历完毕后 i 再去重
-            i += 1
-            while i < len(nums) - 3 and nums[i - 1] == nums[i]:
-                i += 1
-        return ans
-    
 if __name__ == "__main__":
-    nums = [2,2,2,2,2]
-    target = 8
-    print(Solution().fourSum(nums, target))
+    s = ["h","e","l","l","o"]
+    Solution().reverseString(s)
+    print(s)
