@@ -112,3 +112,43 @@ public:
 
 另外学到了 python 中创建一个 n * n 矩阵的语法：`nums = [[0] * n for _ in range(n)]`
 
+---
+
+二刷的时候的代码：
+
+```python
+class Solution:
+    def __init__(self):
+        self.matrix = [[]]
+
+    def initMatrix(self, n):
+        self.matrix = [[0] * n for _ in range(n)]
+    
+    def insertValue(self, num, x, y):
+        self.matrix[x][y] = num
+        # print("---")
+        # print(self.matrix)
+
+    def generateMatrix(self, n: int) -> List[List[int]]:
+        self.initMatrix(n)
+        N = n
+        num = 1
+        while n > 0:
+            x = y = (N - n) // 2
+            X = x
+            Y = y
+            for y in range(Y, Y + n):
+                self.insertValue(num, x, y)
+                num += 1
+            for x in range(X + 1, X + n):
+                self.insertValue(num, x, y)
+                num += 1
+            for y in range(Y + n - 2, Y - 1, -1):
+                self.insertValue(num, x, y)
+                num += 1
+            for x in range(X + n - 2, X, -1):
+                self.insertValue(num, x, y)
+                num += 1
+            n -= 2
+        return self.matrix
+```
