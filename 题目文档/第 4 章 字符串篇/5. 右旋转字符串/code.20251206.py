@@ -1,7 +1,5 @@
 n = int(input())
-s = list(input())
-if(n > len(s)):
-    print("ValueError")
-s1 = s[0:len(s) - n]
-s2 = s[len(s) - n:]
-print("".join(s2 + s1))
+s = input()
+s_prefix = s[0:-n]
+s_suffix = s[-n:]
+print(s_suffix + s_prefix)
